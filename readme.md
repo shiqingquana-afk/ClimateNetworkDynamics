@@ -6,6 +6,13 @@
 
 ## 高维动力学试跑
 
+首次下载建议只获取当前版本，避免传输上游历史中的大文件：
+
+```bash
+git -c http.version=HTTP/1.1 clone --depth 1 --single-branch --branch main https://github.com/shiqingquana-afk/ClimateNetworkDynamics.git
+cd ClimateNetworkDynamics
+```
+
 已整合高维 Lorenz 网络评估，支持自动生成数据、零样本预测、保存预测轨迹和绘制对照图。
 4090 服务器的安装与运行说明见 [high_dim_eval/README.md](high_dim_eval/README.md)。
 按照运行说明准备环境后，在仓库根目录下载原始权重并试跑：
@@ -22,7 +29,7 @@ ChaosNexus: A Foundation Model for ODE-based Chaotic System Forecasting with Hie
 
 >Foundation models have shown great promise in achieving zero-shot or few-shot forecasting for ODE-based chaotic systems via large-scale pretraining. However, existing architectures often fail to capture the multi-scale temporal structures and distinct spectral characteristics of chaotic dynamics. To address this, we introduce ChaosNexus, a foundation model for chaotic system forecasting underpinned by the proposed ScaleFormer architecture. By processing temporal contexts across hierarchically varying patch sizes, ChaosNexus effectively captures long-range dependencies and preserves high-frequency fluctuations. To address heterogeneity across distinct systems, we integrate Mixture-of-Experts (MoE) layers into each ScaleFormer block and explicitly condition the final forecasts on a learned frequency fingerprint, providing the model with a global spectral view of the system. Extensive evaluations on over 9,000 synthetic systems demonstrate that ChaosNexus achieves superior fidelity in long-term attractor statistics while maintaining competitive point-wise accuracy. Furthermore, in real-world applications, it achieves a remarkable zero-shot mean error below 1°C for 5-day station-based weather forecasting.
 # Our Model
-![model schematic](data/ChaosNexus.png)
+![model schematic](https://raw.githubusercontent.com/tsinghua-fib-lab/ChaosNexus/61459a7a265a0c18a9607555145b7dcff3632ce6/data/ChaosNexus.png)
 
 # Installation
 ## Environment

@@ -4,6 +4,13 @@
 
 代码基于用户提供的 high_dim_eval 包，与官方提交 61459a7a265a0c18a9607555145b7dcff3632ce6 对齐。正式论文对应附录 B.2、表3：https://proceedings.mlr.press/v306/liu26gg.html 。新增部分为试跑入口、轨迹导出、绘图及评估任务续跑，不改变耦合方程或原有论文指标的计算方式。
 
+首次克隆推荐使用 --depth 1，只下载当前版本；原始上游历史较大。若连接中断，使用 HTTP/1.1 重试，并为失败的下载换一个空目录，避免覆盖已有文件：
+
+```bash
+git -c http.version=HTTP/1.1 clone --depth 1 --single-branch --branch main https://github.com/shiqingquana-afk/ClimateNetworkDynamics.git ClimateNetworkDynamics-run
+cd ClimateNetworkDynamics-run
+```
+
 ## 1. 在 Linux / RTX4090 服务器准备环境
 
 以下命令在仓库根目录运行。独立环境建议 Python 3.11；服务器已有合适的 CUDA PyTorch 时，可保留与 requirements.txt 兼容的安装。
