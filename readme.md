@@ -1,4 +1,21 @@
-# ChaosNexus
+# ClimateNetworkDynamics
+
+基于 [ChaosNexus](https://github.com/tsinghua-fib-lab/ChaosNexus) 开展高维网络动力系统预测复现。当前提供耦合 Lorenz–63 网络的零样本评估和预测曲线；后续天气、气候研究模块尚未实现。
+
+保留 ChaosNexus 的原始源码、MIT 许可及上游提交历史。高维评估目录在用户提供的实验包基础上整合了试跑入口、轨迹导出、绘图和任务续跑功能。
+
+## 高维动力学试跑
+
+已整合高维 Lorenz 网络评估，支持自动生成数据、零样本预测、保存预测轨迹和绘制对照图。
+4090 服务器的安装与运行说明见 [high_dim_eval/README.md](high_dim_eval/README.md)。
+准备原始模型权重后，在仓库根目录运行：
+
+```bash
+python high_dim_eval/quickstart.py --profile smoke
+python high_dim_eval/quickstart.py --profile highdim
+```
+
+以下保留官方项目说明。
 
 ChaosNexus: A Foundation Model for ODE-based Chaotic System Forecasting with Hierarchical Multi-scale Awareness
 
