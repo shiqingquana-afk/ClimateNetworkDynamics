@@ -8,9 +8,10 @@
 
 已整合高维 Lorenz 网络评估，支持自动生成数据、零样本预测、保存预测轨迹和绘制对照图。
 4090 服务器的安装与运行说明见 [high_dim_eval/README.md](high_dim_eval/README.md)。
-准备原始模型权重后，在仓库根目录运行：
+按照运行说明准备环境后，在仓库根目录下载原始权重并试跑：
 
 ```bash
+python high_dim_eval/download_weights.py
 python high_dim_eval/quickstart.py --profile smoke
 python high_dim_eval/quickstart.py --profile highdim
 ```

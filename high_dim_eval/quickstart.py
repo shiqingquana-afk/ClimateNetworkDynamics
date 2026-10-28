@@ -46,7 +46,8 @@ def find_checkpoint(root: Path, supplied: str | None, panda: bool = False) -> Pa
         return found.pop()
     option = "--panda-checkpoint" if panda else "--checkpoint"
     if not found:
-        raise ValueError(f"Model weights are missing. Pass {option} /path/to/model/checkpoint-final; obtain the complete original weights from the official README. This script does not use randomly initialized weights.")
+        hint = "Download Panda from the official README." if panda else "Run: python high_dim_eval/download_weights.py"
+        raise ValueError(f"Model weights are missing. {hint} Or pass {option} /path/to/model/checkpoint-final. This script does not use randomly initialized weights.")
     raise ValueError(f"Multiple model directories found. Select one with {option}.")
 
 

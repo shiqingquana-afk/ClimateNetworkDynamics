@@ -18,9 +18,17 @@ python -m pip check
 
 上面的 PyTorch 命令要求服务器驱动支持该 CUDA 构建。运行入口会自动使用仓库源码，无需另行安装项目自身，也无需修改 MODEL_NAME。FlashAttention 为可选项。
 
-## 2. 放入原始模型权重
+## 2. 在服务器直接下载原始权重
 
-从官方仓库 readme.md 的 Pre-trained Models 链接取得完整模型目录。不要使用 Weather1/Weather5 微调权重来替代原始零样本基线。目录可按下面放置，也可通过 --checkpoint 指定其他位置。
+在服务器的仓库根目录运行，无需先从本地电脑上传文件：
+
+```bash
+python high_dim_eval/download_weights.py
+```
+
+脚本仅依赖 Python 标准库，从作者公开的 Dropbox 下载原始 ChaosNexus 的3个文件，权重约232MB。支持断点续传；网络中断后重新执行同一命令即可继续。下载后验证长度和 SHA256，校验成功才正式命名，已有完整文件会校验后跳过。需要服务器能访问 Dropbox；不会下载 Weather1/Weather5 微调版，也不把权重提交到 GitHub。
+
+下载位置如下。也可通过 --output-dir 指定其他目录，评估时用 --checkpoint 指向它；已有权重可以直接放入，无需再次下载。
 
 ```text
 checkpoints/
